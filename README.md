@@ -16,6 +16,51 @@ Then the game engine class would begin to take on state and the first change wou
 
 This would allow the client to create an instance of the game object.
 
-In later releases I will enhance the game engine by reducing the current cyclomatic complexity of the FizzBuzzGameEngine IterationOfIs public static method.  The current score of 6 is due to the number of if statements within a single function.
+# Release 1.1 provides
+The code has been altered to allow that game engine class to ensure that the output of the game is declared within private constant string variables.
 
-In order to reduce this number I am going to introduce some indirection to the code and convert the if statements and branching logic into methods with a single purpose this will do two things.  1) reduce the cyclomatic complexity of the code.  Allowing future developers to very quickly reason about what it is the methods within the class are doing and what it is they are responsible for.
+    private const string IsZeroResult = "0";
+    private const string IsFizzResult = "Fizz";
+    private const string IsBuzzResult = "Buzz";
+    private const string IsFizzBuzzResult = "FizzBuzz";
+
+The testing of the iterations i.e. [0..100] against the numbers 3 and 5 for "Fizz" and "Buzz" and "FizzBuzz" outputs have been extracted out of the public method "IterationOfIs" into their own seperate private methods.  
+
+        private static bool IsIterationFizz(int iteration)
+        {
+            return iteration % 3 == 0;
+        }
+
+        private static bool IsIterationBuzz(int iteration)
+        {
+            return iteration % 5 == 0;
+        }
+
+        private static bool IsIterationZero(int iteration)
+        {
+            return iteration == 0;
+        }
+  
+ The other modifications of not are to the public method "IterationOfIs":
+ 
+       var fizz = IsIterationFizz(iteration);
+       var buzz = IsIterationBuzz(iteration);
+       
+ By having these local variables evaluated at the beginning of the method I am able to use them in code as below:
+ 
+            if (fizz && buzz)
+            {
+                return IsFizzBuzzResult;
+            }
+
+            if (fizz)
+            {
+                return IsFizzResult;
+            }
+
+            return buzz ? IsBuzzResult : iteration.ToString();
+
+The ternary if statement allows me to use some syntactic sugar from the compiler to achieve a more terse if statement.
+
+Note:  It is down to the software teams development style guide and or general guidelines as to whether or not the preference for the team is to include or exclude the opening and closing "{" brackets and or of which line they must appear on.
+       
