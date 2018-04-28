@@ -2,32 +2,47 @@ namespace FizzBuzz.GameEngine
 {
     public static class FizzBuzzGameEngine
     {
+        private const string IsZeroResult = "0";
+        private const string IsFizzResult = "Fizz";
+        private const string IsBuzzResult = "Buzz";
+        private const string IsFizzBuzzResult = "FizzBuzz";
+
+        private static bool IsIterationFizz(int iteration)
+        {
+            return iteration % 3 == 0;
+        }
+
+        private static bool IsIterationBuzz(int iteration)
+        {
+            return iteration % 5 == 0;
+        }
+
+        private static bool IsIterationZero(int iteration)
+        {
+            return iteration == 0;
+        }
+
         public static string IterationOfIs(int iteration)
         {
-            var fizz = iteration % 3 == 0;
-            var buzz = iteration % 5 == 0;
+            var fizz = IsIterationFizz(iteration);
+            var buzz = IsIterationBuzz(iteration);
 
-            if (iteration == 0)
+            if (IsIterationZero(iteration))
             {
-                return "0";
+                return IsZeroResult;
             }
 
             if (fizz && buzz)
             {
-                return "FizzBuzz";
+                return IsFizzBuzzResult;
             }
 
             if (fizz)
             {
-                return "Fizz";
+                return IsFizzResult;
             }
 
-            if (buzz)
-            {
-                return "Buzz";
-            }
-
-            return iteration.ToString();
+            return buzz ? IsBuzzResult : iteration.ToString();
         }
     }
 }
