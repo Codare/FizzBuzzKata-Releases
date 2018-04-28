@@ -14,3 +14,7 @@ If the game was to receive further enhancements down the line, such as allowing 
 Then the game engine class would begin to take on state and the first change would be to make the FizzBuzGameEngine class a non static class.
 
 This would allow the client to create an instance of the game object.
+
+In later releases I will enhance the game engine by reducing the current cyclomatic complexity of the FizzBuzzGameEngine IterationOfIs public static method.  The current score of 6 is due to the number of if statements within a single function.
+
+In order to reduce this number I am going to introduce some indirection to the code and convert the if statements and branching logic into methods with a single purpose this will do two things.  1) reduce the cyclomatic complexity of the code.  Allowing future developers to very quickly reason about what it is the methods within the class are doing and what it is they are responsible for.
