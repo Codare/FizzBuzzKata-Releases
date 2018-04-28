@@ -1,3 +1,5 @@
+using System.Globalization;
+
 namespace FizzBuzz.GameEngine
 {
     public static class FizzBuzzGameEngine
@@ -42,7 +44,7 @@ namespace FizzBuzz.GameEngine
                 return IsFizzResult;
             }
 
-            return buzz ? IsBuzzResult : iteration.ToString();
+            return buzz ? IsBuzzResult : iteration.ToString(CultureInfo.CurrentCulture);
         }
     }
 }
