@@ -8,6 +8,7 @@ b) The candidate can choose whether to write the code without tests or write the
 such that the tests begin to start with known cases of 0 returns "0", triangulation would suggest that the developer continues to drive the development of the game in such a way as to increment the iterations by 1.  So the next test to write is for the value 1 and then 2.
 However developers who begin to get comfortable with TDD can often skip ahead to more interesting edge cases or the next know area of value such as 3 in the simples rules of the game 3 returns "Fizz" and then 4 can be skipped out and we can jump straight to 5 which returns "Buzz" and so from 5 we might be confident in our test cases and look at 15 where we know that the output should be "FizzBuzz".
 
+# Release 1.0 provides
 The solution provided is providing an implementation that is just the right amount of sufficient code to achieve the typical requirements of the FizzBuzz Game interview test.
 
 If the game was to receive further enhancements down the line, such as allowing the player to create their own numbers say [5 and 6] with a custom message when the player guesses the multiples of [5] and multiples of [6] such as [5 outputs "Bingo"] and [6 outputs "Buckaroo"].
