@@ -9,7 +9,7 @@ namespace ConsoleApp.FizzBuzz
         {
             Console.WriteLine("Play the game");
 
-            for (int iteration = 0; iteration <= 100; iteration++)
+            for (var iteration = 0; iteration <= 100; iteration++)
             {
                 var result = FizzBuzzGameEngine.IterationOfIs(iteration);
                 Console.WriteLine(result);
