@@ -129,28 +129,7 @@ namespace Tests.FizzBuzz
 
         //There are pros and cons towards using MemberData as the input for a Theory of unit tests.
         //It is possible if an external source of known inputs and outputs can be obtained.
-        //Therefore a list of named tuples can be .  In a Member class object.
-        //You can still 
         [Theory]
-        //[InlineData("0", 0)]
-        //[InlineData("1", 1)]
-        //[InlineData("2", 2)]
-        //[InlineData("Fizz", 3)]
-        //[InlineData("4", 4)]
-        //[InlineData("Buzz", 5)]
-        //[InlineData("Fizz", 6)]
-        //[InlineData("7", 7)]
-        //[InlineData("8", 8)]
-        //[InlineData("Fizz", 9)]
-        //[InlineData("10", 10)]
-        //[InlineData("11", 11)]
-        //[InlineData("Fizz", 12)]
-        //[InlineData("13", 13)]
-        //[InlineData("14", 14)]
-        //[InlineData("FizzBuzz", 15)]
-        //[InlineData("16", 16)]
-        //[InlineData("17", 17)]
-        //[InlineData("18", 18)]
         [MemberData(nameof(GetFizzBuzzIterationTestCases))]
         public void FizzBuzzIterationOfTests(string outcome, int iteration)
         {
