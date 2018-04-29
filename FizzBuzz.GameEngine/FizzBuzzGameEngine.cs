@@ -7,7 +7,6 @@ namespace FizzBuzz.GameEngine
         private const string IsZeroResult = "0";
         private const string IsFizzResult = "Fizz";
         private const string IsBuzzResult = "Buzz";
-        private const string IsFizzBuzzResult = "FizzBuzz";
 
         private static bool IsIterationFizz(int iteration)
         {
@@ -26,25 +25,34 @@ namespace FizzBuzz.GameEngine
 
         public static string IterationOfIs(int iteration)
         {
-            var fizz = IsIterationFizz(iteration);
-            var buzz = IsIterationBuzz(iteration);
-
             if (IsIterationZero(iteration))
             {
                 return IsZeroResult;
             }
 
-            if (fizz && buzz)
-            {
-                return IsFizzBuzzResult;
-            }
+            return _iterationOfIs(iteration);
+        }
+
+        private static string _iterationOfIs(int iteration)
+        { 
+            var fizz = IsIterationFizz(iteration);
+            var buzz = IsIterationBuzz(iteration);
+
+            var result = string.Empty;
 
             if (fizz)
             {
-                return IsFizzResult;
+                result += IsFizzResult;
             }
 
-            return buzz ? IsBuzzResult : iteration.ToString(CultureInfo.CurrentCulture);
+            if (buzz)
+            {
+                result += IsBuzzResult;
+            }
+
+            return !string.IsNullOrWhiteSpace(result)
+                ? result
+                : iteration.ToString(CultureInfo.CurrentCulture);
         }
     }
 }
