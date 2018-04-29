@@ -29,22 +29,26 @@ namespace FizzBuzz.GameEngine
             var fizz = IsIterationFizz(iteration);
             var buzz = IsIterationBuzz(iteration);
 
+            var result = string.Empty;
+
             if (IsIterationZero(iteration))
             {
                 return IsZeroResult;
             }
 
-            if (fizz && buzz)
-            {
-                return IsFizzBuzzResult;
-            }
-
             if (fizz)
             {
-                return IsFizzResult;
+                 result += IsFizzResult;
             }
 
-            return buzz ? IsBuzzResult : iteration.ToString(CultureInfo.CurrentCulture);
+            if (buzz)
+            {
+                result += IsBuzzResult;
+            }
+                
+            return string.IsNullOrWhiteSpace(result) 
+                ? iteration.ToString(CultureInfo.CurrentCulture) 
+                : result;
         }
     }
 }
