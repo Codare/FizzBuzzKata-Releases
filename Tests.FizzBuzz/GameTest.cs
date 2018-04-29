@@ -25,17 +25,22 @@ namespace Tests.FizzBuzz
             _output.WriteLine($"outcome: {outcome} | iteration: {iteration}");
 
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(iteration);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(iteration);
 
             //assert
             Assert.Equal(outcome, actual);
+        }
+
+        private static string FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(int iteration)
+        {
+            return FizzBuzzGameEngine.IterationOfIs(iteration);
         }
 
         [Fact]
         public void FizzBuzzIterationOfZeroIsZero()
         {
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(0);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(0);
 
             //assert
             Assert.Equal("0", actual);
@@ -45,7 +50,7 @@ namespace Tests.FizzBuzz
         public void FizzBuzzIterationOfOneIsOne()
         {
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(1);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(1);
 
             //assert
             Assert.Equal("1", actual);
@@ -55,7 +60,7 @@ namespace Tests.FizzBuzz
         public void FizzBuzzIterationOfThreeIsFizz()
         {
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(3);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(3);
 
             //assert
             Assert.Equal("Fizz", actual);
@@ -65,7 +70,7 @@ namespace Tests.FizzBuzz
         public void FizzBuzzIterationOfFiveIsBuzz()
         {
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(5);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(5);
 
             //assert
             Assert.Equal("Buzz", actual);
@@ -75,7 +80,7 @@ namespace Tests.FizzBuzz
         public void FizzBuzzIterationOfFiftennIsFizzBuzz()
         {
             //act
-            var actual = FizzBuzzGameEngine.IterationOfIs(15);
+            var actual = FizzBuzzGameEngineReturnsTheCorrectOutputForGivenIterationInput(15);
 
             //assert
             Assert.Equal("FizzBuzz", actual);
